@@ -16,7 +16,7 @@ def message():
     return 'PROYECTO INTEGRADOR ALEXIS ALVAREZ'
 
 @app.get('/PlayTimeGenre/')
-def PlayTimeGenre(genre: str) -> dict[str, int]:
+def PlayTimeGenre(genre: str) -> dict:
     genre_df = df[df[genre] == 1]
     year_playtime_df = genre_df.groupby('year')['playtime_forever'].sum().reset_index()
     max_playtime_year = year_playtime_df.loc[year_playtime_df['playtime_forever'].idxmax(), 'year']
