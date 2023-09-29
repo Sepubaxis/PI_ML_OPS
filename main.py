@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import pandas as pd
+import numpy as np
 from sklearn.metrics.pairwise        import cosine_similarity
 from sklearn.metrics.pairwise        import linear_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -7,7 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 app=FastAPI(debug=True)
 
-df = pd.read_csv('Df_Final.csv')
+df = pd.read_csv('df_final.csv')
 
 
 @app.get('/')
