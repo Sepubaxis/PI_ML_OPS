@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 import pandas as pd
-import numpy as np
 from sklearn.metrics.pairwise        import cosine_similarity
 from sklearn.metrics.pairwise        import linear_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -20,7 +19,7 @@ def PlayTimeGenre(genre: str) -> dict[str, int]:
     genre_df = df[df[genre] == 1]
     year_playtime_df = genre_df.groupby('year')['playtime_forever'].sum().reset_index()
     max_playtime_year = year_playtime_df.loc[year_playtime_df['playtime_forever'].idxmax(), 'year']
-    return {"max_playtime_year": int(max_playtime_year)}
+    return {"Año de lanzamiento con más horas jugadas para Género :": int(max_playtime_year)}
 
 @app.get('/UserForGenre/')
 def UserForGenre(genre: str) -> dict:
