@@ -38,7 +38,7 @@ def UserForGenre(genre: str) -> dict:
 
 @app.get('/UsersRecommend/')
 def UsersRecommend(year: int) -> dict:
-    df_filtrado = df[(df['year'] == year) & (df['recommend'] == True) & (df['sentiment_score'] >= 1)]
+    df_filtrado = df[(df['year'] == year) & (df['recommend'] == True) & (df['sentiment_score'] == 2)]
     if df_filtrado.empty:
         return {"error": 'Valor no encontrado'}
     df_ordenado = df_filtrado.sort_values(by='sentiment_score', ascending=False)
@@ -51,18 +51,18 @@ def UsersRecommend(year: int) -> dict:
     return resultado
 
 @app.get('/UsersNotRecommed/')
-def UsersNotRecommend(year: int) -> list:
-    filtered_df = df[(df['year'] == year) & (df['sentiment_score'] == 0)]
-    game_counts = filtered_df.groupby('title')['user_id'].count().reset_index()
-    sorted_games = game_counts.sort_values('user_id', ascending=False)
-    top_3_games = sorted_games.head(3)
-    result = []
-    for index, row in top_3_games.iterrows():
-        position = "Puesto " + str(index + 1)
-        game = row['title']
-        result.append({position: game})
-    
-    return result
+def UsersRecommend(year: int) -> dict:
+    df_filtrado = df[(df['year'] == year) & (df['recommend'] == False) & (df['sentiment_score'] <= 1)]
+    if df_filtrado.empty:
+        return {"error": 'Valor no encontrado'}
+    df_ordenado = df_filtrado.sort_values(by='sentiment_score', ascending=False)
+    top_3_reseñas = df_ordenado.head(3)
+    resultado = {
+        "Puesto 1": top_3_reseñas.iloc[0]['title'],
+        "Puesto 2": top_3_reseñas.iloc[1]['title'],
+        "Puesto 3": top_3_reseñas.iloc[2]['title']
+    }
+    return resultado
 
 @app.get('/sentiment_analysis/')
 def sentiment_analysis(year: int) -> dict:
@@ -88,13 +88,23 @@ cosine_similarity = linear_kernel( tdfid_matrix, tdfid_matrix)
 def recomendacion(id_producto: int):
     if id_producto not in muestra['steam_id'].values:
         return {'mensaje': 'No existe el id del juego.'}
-
+    
+    # Obtener géneros del juego con el id_producto
+    generos = muestra.columns[2:17]  # Obtener los nombres de las columnas de género
+    
+    # Filtrar el dataframe para incluir juegos con géneros coincidentes pero con títulos diferentes
+    filtered_df = muestra[(muestra[generos] == 1).any(axis=1) & (muestra['steam_id'] != id_producto)]
+    
+    # Calcular similitud del coseno
+    tdfid_matrix_filtered = tfidf.transform(filtered_df['review'])
+    cosine_similarity_filtered = linear_kernel(tdfid_matrix_filtered, tdfid_matrix_filtered)
+    
     idx = muestra[muestra['steam_id'] == id_producto].index[0]
-    sim_cosine = list(enumerate(cosine_similarity[idx]))
+    sim_cosine = list(enumerate(cosine_similarity_filtered[idx]))
     sim_scores = sorted(sim_cosine, key=lambda x: x[1], reverse=True)
     sim_ind = [i for i, _ in sim_scores[1:6]]
-    sim_juegos = muestra['title'].iloc[sim_ind].values.tolist()
-
+    sim_juegos = filtered_df['title'].iloc[sim_ind].values.tolist()
+    
     return {'juegos recomendados': list(sim_juegos)}
 
 @app.get('/recomendacion_juego/{id_juego}')
