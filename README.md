@@ -5,8 +5,8 @@
 
 # <h1 align=center>**`Machine Learning Operations (MLOps)`**</h1>
 
-<p align=center><img src=https://cdn.analyticsvidhya.com/wp-content/uploads/2023/03/mlops.png](https://www.soapboxlabs.com/wp-content/uploads/2022/04/An-intrdoduction-to-MLOps-benefits-principles-and-applications-blog.jpg><p>
-
+[<p align=center><img src=[https://cdn.analyticsvidhya.com/wp-content/uploads/2023/03/mlops.png](https://www.soapboxlabs.com/wp-content/uploads/2022/04/An-intrdoduction-to-MLOps-benefits-principles-and-applications-blog.jpg](https://www.folio3.ai/wp-content/uploads/2023/03/Asset-4-788x301.png)><p>
+](https://www.folio3.ai/wp-content/uploads/2023/03/Asset-4-788x301.png)
 ## **Introducción:**
 Este proyecto consiste en crear una API que utiliza un modelo de recomendación para Steam, una plataforma multinacional de videojuegos, basado en Machine Learning. El objetivo es crear un sistema de recomendación de videojuegos para usuarios. La API ofrece una interfaz intuitiva para que los usuarios puedan obtener informacion para el sistema de recomendacion y datos sobre generos o fechas puntuales. 
 
