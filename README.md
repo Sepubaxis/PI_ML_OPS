@@ -45,9 +45,20 @@ Las herramientas utilizadas fueron: Uvicorn, Render, FastAPI
 Realizamos un proceso de EDA (Exploratory Data Analysis) en el que exploramos y analizamos los datos de manera exhaustiva con el objetivo de obtener insights, identificar patrones, tendencias y relaciones, y así tomar decisiones fundamentadas en base a la información obtenida. Intentando asi obtener alguna pista para crear nuestro modelo de ML
 Las herramientas utilizadas fueron: Numpy, Pandas, Matplotlib, Seaborn, Wordcloud, NLTK
 ### 4. Modelo de Machine Learning
-Realizamos un modelo de Machine Learning para generar recomendaciones de películas, utilizando algoritmos y técnicas que analizaron patrones en los datos de usuarios y películas, con el fin de brindar recomendaciones personalizadas y precisas basadas en los gustos y preferencias de cada usuario.
-La herramienta utilizada fue: Scikit-Learn
-Tambien son consultables
+Realizamos un modelo de Machine Learning para generar recomendaciones juegoss, utilizando algoritmos y técnicas como la similitud del coseno y scikit-lear, con el fin de brindar recomendaciones personalizadas y precisas basadas en los gustos y preferencias de cada usuario.
+ Si es un sistema de recomendación item-item:
+
+- def recomendacion_juego( id de producto ): Ingresando el id de producto, deberíamos recibir una lista con 5 juegos recomendados similares al ingresado.
+
+ Ejemplo de uso: 70
+ Si es un sistema de recomendación user-item:
+
+- def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario, deberíamos recibir una lista con 5 juegos recomendados para dicho usuario.
+ Ejemplo de uso: 76561198030567998
+
+
+La herramienta utilizada fue: Scikit-Learn con las librerias: TfidfVectorizer, linear_kernel, cosine_similarity
+Tambien son consultables en la API
 
 ## **Links:**
 - [Deploy de la API en Render](https://ml-ops-alex.onrender.com/)
