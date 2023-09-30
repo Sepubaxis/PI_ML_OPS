@@ -62,7 +62,7 @@ Tambien son consultables en la API
 
 ## **Links:**
 - [Deploy de la API en Render](https://ml-ops-alex.onrender.com/)
-- [Video del funcionamiento](https://www.youtube.com/watch?v=1XYnO1gXHhI)
+- 
 ## **Canales de contacto:**
 + Linkedin: [Alexis Alvarez](https://www.linkedin.com/in/alvarezalexiscv/)
-+ Mail: em.montinaro@gmail.com
++ Mail: alvarezalexiscv@outlook.com
