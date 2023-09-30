@@ -65,4 +65,4 @@ Tambien son consultables en la API
 - 
 ## **Canales de contacto:**
 + Linkedin: [Alexis Alvarez](https://www.linkedin.com/in/alvarezalexiscv/)
-+ Mail: alvarezalexiscv@outlook.com
++ Mail : Alexisalvarezcv@outlook.com
