@@ -1,5 +1,5 @@
 # PI_ML_OPS
-<p align=center><img src=https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png><p>
+<p align=center><img src=https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-black-lg.png><p>
 
 # <h1 align=center> **PROYECTO INDIVIDUAL Nº1** </h1>
 
@@ -48,12 +48,12 @@ Las herramientas utilizadas fueron: Numpy, Pandas, Matplotlib, Seaborn, Wordclou
 Realizamos un modelo de Machine Learning para generar recomendaciones juegoss, utilizando algoritmos y técnicas como la similitud del coseno y scikit-lear, con el fin de brindar recomendaciones personalizadas y precisas basadas en los gustos y preferencias de cada usuario.
  Si es un sistema de recomendación item-item:
 
-- def recomendacion_juego( id de producto ): Ingresando el id de producto, deberíamos recibir una lista con 5 juegos recomendados similares al ingresado.
+- def recomendacion_juego( id de producto ): Ingresando el id de producto ('id), deberíamos recibir una lista con 5 juegos recomendados similares al ingresado.
 
  Ejemplo de uso: 70
  Si es un sistema de recomendación user-item:
 
-- def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario, deberíamos recibir una lista con 5 juegos recomendados para dicho usuario.
+- def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario ('user_id'), deberíamos recibir una lista con 5 juegos recomendados para dicho usuario.
  Ejemplo de uso: 76561198030567998
 
 
